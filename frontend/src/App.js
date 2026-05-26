@@ -3,12 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
-import {
-  Shield, Upload, FileCode, AlertTriangle, CheckCircle,
-  Database, Eye, Zap, TrendingUp, Lock,
+import { 
+  Shield, Upload, FileCode, AlertTriangle, 
+  Database, Eye, Zap, TrendingUp, Lock, 
   Sun, Moon, ChevronRight
 } from 'lucide-react';
-
 // LIVE BACKEND URL - DO NOT CHANGE
 const API_URL = 'https://chainguard-ai-backend.onrender.com';
 
