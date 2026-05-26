@@ -9,7 +9,12 @@ app = FastAPI()
 # Add CORS middleware to allow frontend to connect
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React frontend address
+    allow_origins=[
+        "http://localhost:3000",
+        "https://chain-guard-ai-sigma.vercel.app",
+        "https://chain-guard-ai-git-main-amanuel-s-projects4.vercel.app",
+        "https://*.vercel.app"  # Allows all Vercel preview deployments
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
