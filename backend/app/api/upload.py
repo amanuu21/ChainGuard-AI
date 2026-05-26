@@ -1,3 +1,4 @@
+import json
 import logging
 import traceback
 from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
@@ -35,12 +36,15 @@ async def upload_contract(
         analysis = analyze_solidity(solidity_code)
         logger.info(f"Analysis complete. Risk score: {analysis.get('risk_score', 'N/A')}")
         
+        # Convert analysis dict to JSON string for database storage
+        analysis_json = json.dumps(analysis)
+        
         # Save to database with analysis results
         new_contract = Contract(
             filename=file.filename,
             solidity_code=solidity_code,
             risk_score=analysis.get("risk_score"),
-            analysis_result=analysis
+            analysis_result=analysis_json  # Now saving as JSON string
         )
         
         logger.info("Saving to database...")
@@ -87,11 +91,20 @@ def get_contract(contract_id: int, db: Session = Depends(get_db)):
         contract = db.query(Contract).filter(Contract.id == contract_id).first()
         if not contract:
             raise HTTPException(status_code=404, detail="Contract not found")
+        
+        # Parse analysis_result back to dict if it's a string
+        analysis = contract.analysis_result
+        if analysis and isinstance(analysis, str):
+            try:
+                analysis = json.loads(analysis)
+            except:
+                pass
+                
         return {
             "id": contract.id,
             "filename": contract.filename,
             "solidity_code": contract.solidity_code,
-            "analysis_result": contract.analysis_result,
+            "analysis_result": analysis,
             "risk_score": contract.risk_score,
             "created_at": str(contract.created_at)
         }
