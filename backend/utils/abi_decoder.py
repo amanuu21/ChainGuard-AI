@@ -4,3 +4,6 @@
 
 # Progress update on 2026-07-07 - fix(scanner): resolve ABI type decoding for uint256 tuples (iter 2)
 # Revision: 12
+
+# Progress update on 2026-07-16 - fix(scanner): resolve ABI type decoding for uint256 tuples (iter 3)
+# Revision: 22
