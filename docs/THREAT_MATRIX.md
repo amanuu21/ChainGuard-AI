@@ -4,3 +4,6 @@
 
 # Progress update on 2026-07-13 - docs: add threat matrix flowchart to security analyzer docs (iter 2)
 # Revision: 18
+
+# Progress update on 2026-07-18 - docs: add threat matrix flowchart to security analyzer docs (iter 3)
+# Revision: 28
