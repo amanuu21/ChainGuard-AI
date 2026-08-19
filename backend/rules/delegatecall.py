@@ -13,3 +13,6 @@
 
 # Progress update on 2026-08-12 - feat(rules): detect delegatecall to arbitrary untrusted addresses (iter 5)
 # Revision: 46
+
+# Progress update on 2026-08-19 - feat(rules): detect delegatecall to arbitrary untrusted addresses (iter 6)
+# Revision: 56
