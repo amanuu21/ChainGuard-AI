@@ -13,3 +13,6 @@
 
 # Progress update on 2026-08-13 - refactor(api): stream vulnerability scan progress events via SSE (iter 5)
 # Revision: 47
+
+# Progress update on 2026-08-23 - refactor(api): stream vulnerability scan progress events via SSE (iter 6)
+# Revision: 57
